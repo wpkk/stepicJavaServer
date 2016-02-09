@@ -1,0 +1,6 @@
+01-05 08:25:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERS" not found; SQL statement:
+select * from users [42102-187]
+01-05 08:25:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERS" not found; SQL statement:
+select * from users where login = 'userName' [42102-187]
