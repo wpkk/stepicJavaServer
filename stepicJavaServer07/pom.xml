@@ -9,7 +9,6 @@
     <version>1.0</version>
 
     <properties>
-        <org.eclipse.jetty.version>9.3.0.M1</org.eclipse.jetty.version>
         <org.apache.logging.log4j.version>2.2</org.apache.logging.log4j.version>
         <junit.version>4.11</junit.version>
         <org.mockito.version>1.8.4</org.mockito.version>
@@ -47,18 +46,6 @@
     </build>
 
     <dependencies>
-
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-server</artifactId>
-            <version>${org.eclipse.jetty.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-webapp</artifactId>
-            <version>${org.eclipse.jetty.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
