@@ -1,12 +1,12 @@
-package com.wpkk.stepicJavaServer03_01.accounts;
+package com.wpkk.stepicJavaServer03_02.accounts;
+
+import com.wpkk.stepicJavaServer03_02.dbService.DBException;
+import com.wpkk.stepicJavaServer03_02.dbService.DBService;
+import com.wpkk.stepicJavaServer03_02.dbService.DBServiceImpl;
+import com.wpkk.stepicJavaServer03_02.dbService.dataSets.UsersDataSet;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import com.wpkk.stepicJavaServer03_01.dbService.DBException;
-import com.wpkk.stepicJavaServer03_01.dbService.DBService;
-import com.wpkk.stepicJavaServer03_01.dbService.DBServiceImpl;
-import com.wpkk.stepicJavaServer03_01.dbService.dataSets.UsersDataSet;
 
 
 /**
@@ -19,14 +19,15 @@ import com.wpkk.stepicJavaServer03_01.dbService.dataSets.UsersDataSet;
 public class AccountService {
     private final Map<String, UserProfile> loginToProfile;
     private final Map<String, UserProfile> sessionIdToProfile;
+    DBService dbService;
 
     public AccountService() {
         loginToProfile = new HashMap<>();
         sessionIdToProfile = new HashMap<>();
+        dbService = new DBServiceImpl();
     }
 
     public void addNewUser(UserProfile userProfile) {
-        DBService dbService = new DBServiceImpl();
         try {
             dbService.addUser(userProfile.getLogin(), userProfile.getPass());
         } catch (DBException e) {
@@ -35,7 +36,6 @@ public class AccountService {
     }
 
     public UserProfile getUserByLogin(String login) {
-        DBService dbService = new DBServiceImpl();
         UsersDataSet dataSet = null;
         try {
             dataSet = dbService.getUserByLogin(login);

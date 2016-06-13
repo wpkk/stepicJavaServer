@@ -1,11 +1,11 @@
-package com.wpkk.stepicJavaServer03_01.main;
+package com.wpkk.stepicJavaServer03_02.main;
 
-import com.wpkk.stepicJavaServer03_01.accounts.AccountService;
-import com.wpkk.stepicJavaServer03_01.dbService.DBService;
-import com.wpkk.stepicJavaServer03_01.dbService.DBServiceImpl;
-import com.wpkk.stepicJavaServer03_01.dbService.dataSets.UsersDataSet;
-import com.wpkk.stepicJavaServer03_01.servlets.SignInServlet;
-import com.wpkk.stepicJavaServer03_01.servlets.SignUpServlet;
+import com.wpkk.stepicJavaServer03_02.accounts.AccountService;
+import com.wpkk.stepicJavaServer03_02.dbService.DBService;
+import com.wpkk.stepicJavaServer03_02.dbService.DBServiceImpl;
+import com.wpkk.stepicJavaServer03_02.dbService.dataSets.UsersDataSet;
+import com.wpkk.stepicJavaServer03_02.servlets.SignInServlet;
+import com.wpkk.stepicJavaServer03_02.servlets.SignUpServlet;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerList;
@@ -31,7 +31,6 @@ public class Main {
         DBService dbService = new DBServiceImpl();
         List<UsersDataSet> list = dbService.getAllUsers();
         System.out.printf(Arrays.toString(list.toArray()));
-        dbService.cleanUp();
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.addServlet(new ServletHolder(new SignUpServlet(accountService)), "/signup");

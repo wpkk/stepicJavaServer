@@ -1,6 +1,6 @@
-package com.wpkk.stepicJavaServer03_01.dbService;
+package com.wpkk.stepicJavaServer03_02.dbService;
 
-import com.wpkk.stepicJavaServer03_01.dbService.dataSets.UsersDataSet;
+import com.wpkk.stepicJavaServer03_02.dbService.dataSets.UsersDataSet;
 
 import java.util.List;
 
@@ -11,6 +11,4 @@ public interface DBService {
     public UsersDataSet getUserByLogin(String login) throws DBException;
 
     public List<UsersDataSet> getAllUsers() throws DBException;
-
-    public void cleanUp() throws DBException;
 }
